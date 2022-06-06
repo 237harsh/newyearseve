@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style1.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+   background-image: url("https://images.hindustantimes.com/img/2021/12/26/550x309/pexels-jill-wellington-3334355_1640517429083_1640517469242.jpg");
+    background-size: cover;
+    background-position:center center ;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.countdown{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+h1{
+    font-size: 4rem;
+    margin-top: -5rem;
+    
+   
+}
+.bigtext{
+    font-size: 5rem;
+    line-height: 1;
+    margin: 0 2rem;
+}
+.el{
+    text-align: center;
+    
+}
+.el span{
+    font-size: 2rem;
+}
+  </style>
+  <title>countdown timmer</title>
+</head>
+<body>
+  <h1>Newyear eve</h1>
+  <div class="countdown">
+      <div class="el days-c" >
+     <p class="bigtext" id="days">0</p>
+     <span>days</span>
+    </div>
+    <div class="el hour-c">
+      <p class="bigtext" id="hour">0</p>
+      <span>hour</span>
+     </div>
+     <div class="el min-c">
+      <p class="bigtext" id="min">0</p>
+      <span>mins</span>
+     </div>
+     <div class="el sec-c">
+      <p class="bigtext" id="sec">0</p>
+      <span>second</span>
+     </div>
+  </div>
+  <script  >
+    const newyear= "1 jan 2023"
+function countdown(){
+    const newyeardate= new Date(newyear)
+    const currdate= new Date()
+    
+    const seconds=(newyeardate-currdate)/1000
+  const days = Math.floor(seconds/3600/24)
+  const hours =Math.floor(seconds/3600)%24
+  const minutes= Math.floor(seconds/60)%24%60
+  const sec=Math.floor(seconds)%60
+  ///console.log(days,hours,minutes,sec)
+    let daysx=document.getElementById("days").innerHTML=days
+    let hoursx=document.getElementById("hour").innerHTML=hours
+    let minutesx=document.getElementById("min").innerHTML=minutes
+    let secx=document.getElementById("sec").innerHTML=sec
+}
+
+setInterval(countdown,1000)
+  </script>
+</body>
+</html>
